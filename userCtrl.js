@@ -1,4 +1,5 @@
 let userData = require("./userData.json");
+let serial = userData[userData.length - 1].id
 
 module.exports = {
   getUsers: (req, res) => {
@@ -63,7 +64,7 @@ module.exports = {
   createUser: (req, res) => {
     userData = [
       ...userData,
-      { ...req.body, id: userData[userData.length - 1].id + 1 }
+      { ...req.body, id: serial += 1 }
     ];
 
     res.send(userData).status(200);
